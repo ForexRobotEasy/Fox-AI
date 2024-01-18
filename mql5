@@ -1,0 +1,89 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                            Fox AI               |
+//|                             Developer: Forex Robot Easy Team    |
+//|                             Website: forexroboteasy.com         |
+//+------------------------------------------------------------------+
+
+// Import necessary libraries
+#include <Kras.mqh>
+#include <Tens.mqh>
+
+// Define constants
+#define NIGHT_TRADING_START_HOUR 22
+#define NIGHT_TRADING_END_HOUR 6
+#define ROLLOVER_PERIOD 4
+#define CLOSE_TRADE_TIME_LIMIT 12
+
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Check if the current time is within night trading hours
+    if (Hour() >= NIGHT_TRADING_START_HOUR || Hour() <= NIGHT_TRADING_END_HOUR)
+    {
+        // Perform machine learning and intelligent algorithm analysis
+        Kras.DeepLearningAnalysis();
+        
+        // Execute trades during the rollover period
+        for (int i = 0; i < ROLLOVER_PERIOD; i++)
+        {
+            ExecuteRolloverTrades();
+        }
+        
+        // Close trades within 12 hours
+        CloseTradesWithinTimeLimit();
+    }
+    
+    return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Perform necessary cleanup tasks
+    CleanUp();
+}
+
+//+------------------------------------------------------------------+
+//| Execute trades during the rollover period                        |
+//+------------------------------------------------------------------+
+void ExecuteRolloverTrades()
+{
+    // Implement necessary trading functions to optimize trading strategies during the rollover period
+    // ...
+    // ...
+}
+
+//+------------------------------------------------------------------+
+//| Close trades within time limit                                    |
+//+------------------------------------------------------------------+
+void CloseTradesWithinTimeLimit()
+{
+    // Get the current time
+    datetime currentTime = TimeCurrent();
+    
+    // Calculate the time limit for closing trades
+    datetime closeTimeLimit = currentTime + CLOSE_TRADE_TIME_LIMIT * 60 * 60;
+    
+    // Close trades within the time limit
+    while (TimeCurrent() < closeTimeLimit)
+    {
+        // Implement necessary trading functions to close trades
+        // ...
+        // ...
+    }
+}
+
+//+------------------------------------------------------------------+
+//| Clean up tasks                                                    |
+//+------------------------------------------------------------------+
+void CleanUp()
+{
+    // Perform necessary cleanup tasks
+    // ...
+    // ...
+}
